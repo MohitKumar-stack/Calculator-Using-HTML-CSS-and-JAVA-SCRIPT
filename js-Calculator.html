@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascriptcalucater</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background-color: rgb(204, 34, 91);
+        }
+
+        .contanir {
+            width: 300px;
+            height: 400px;
+            background-color: black;
+            opacity: 0.5;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #entry input {
+            width: 90%;
+            margin: 20px;
+            margin-left: 15px;
+            height: 30px;
+            font-size: 30px;
+            outline: 0;
+            text-align: right;
+            background-color: black;
+            border-color: black;
+            opacity: 0.5;
+            
+            color: white;
+            
+
+        }
+
+        .contanir button {
+            font-size: 30px;
+            font-weight: bold;
+            width: 15%;
+            height: 13%;
+            margin: 10px;
+            padding: 5px;
+
+            /* background-color:none; */
+
+            color: rgb(255, 255, 255);
+        }
+
+        .but {
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .but button {
+            outline: 0;
+            border-color: black;
+            background-color: black;
+            opacity: 0.5;
+        }
+
+        hr {
+            border-color: rgb(204, 34, 91);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contanir">
+        <div id="entry">
+            <input id="entry1" type="text">
+
+        </div>
+        <hr>
+        <div class="but">
+            <button id="b">7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>+</button><br>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button><br>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>*</button><br>
+            <button>C</button>
+            <button>=</button>
+            <button>.</button>
+            <button>/</button>
+        </div>
+    </div>
+
+
+    <script>
+        $(function (){
+            var calculation =""
+            
+            $('button').click(function() {
+                
+            var press_value= $(this).text();
+            if (press_value=='C') {
+                calculation =""
+                document.getElementById("entry1").placeholder = ''; 
+             }
+            if (press_value=='=') {
+                
+                document.getElementById("entry1").value = eval(calculation);
+                calculation ="";
+             }
+            else{
+                calculation += press_value
+                document.getElementById("entry1").value = calculation;
+
+            } 
+        
+            
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>
